@@ -1,0 +1,15 @@
+{
+  "type": "pwa-node",
+  "request": "launch",
+  "name": "Launch App",
+  "program": "${workspaceFolder}/build/main.js",
+  "cwd": "${workspaceFolder}",
+  "sourceMaps": true,
+  "outFiles": [
+    "${workspaceFolder}/build/*.js",
+    "${workspaceFolder}/build/**/*.js"
+  ],
+  "skipFiles": [
+    "<node_internals>/**"
+  ]
+}

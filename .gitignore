@@ -1,0 +1,9 @@
+# directories
+.nvim/
+learn-nvim-api/
+
+# files
+.fuse_hidden*
+
+# other
+*NOTES.md

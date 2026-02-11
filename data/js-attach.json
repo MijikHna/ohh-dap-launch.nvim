@@ -1,0 +1,12 @@
+{
+  "name": "Attach",
+  "type": "pwa-node",
+  "request": "attach",
+  "localRoot": "${workspaceFolder}",
+  "remoteRoot": "/app",
+  "sourceMaps": true,
+  "port": 9229,
+  "skipFiles": [
+    "<node_internals>/**"
+  ]
+}

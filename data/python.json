@@ -1,0 +1,8 @@
+{
+  "name": "Python: Launch",
+  "type": "python",
+  "request": "launch",
+  "program": "${file}",
+  "console": "integratedTerminal",
+  "justMyCode": true
+}

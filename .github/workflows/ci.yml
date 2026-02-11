@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Neovim
+        uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: v0.11.0
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y luarocks
+          # actually currently not needed
+          luarocks install --local luacheck
+      - name: Install lazy.nvim
+        run: |
+          git clone --filter=blob:none https://github.com/folke/lazy.nvim.git \
+            ~/.local/share/nvim/site/pack/lazy/start/lazy.nvim
+      - name: Install plugins
+        run: |
+          nvim --headless -u tests/init.lua -c 'Lazy install' +qall
+      - name: Run Plenary tests
+        run: |
+          timeout 120s nvim --headless -u tests/init.lua -V3${GITHUB_WORKSPACE}/logfile.txt -c "PlenaryBustedDirectory tests" +qall
+          cat ${GITHUB_WORKSPACE}/logfile.txt

@@ -1,0 +1,49 @@
+==============================================================================
+NAME                                                         *ohh-dap-launch*
+
+    ohh-dap-launch.nvim - A simple Neovim plugin boilerplate
+
+==============================================================================
+DESCRIPTION
+
+    Adds debug launch configuration into `launch.json` like in VS Code
+
+==============================================================================
+INSTALLATION
+
+Using lazy.nvim:
+
+>lua
+  return {
+    "MijikHna/ohh-dap-launch.nvim"
+    build = function() require("ohh-dap-launch").install() end,
+    dependencies = { "L3MON4D3/LuaSnip" },
+  }
+<
+
+==============================================================================
+USAGE
+                                                                *OhhDapLaunch*
+    :OhhDapLaunch
+
+        Select the launch configuration from presets
+
+                                                    *OhhDapLaunch_addTemplate*
+    :OhhDapLaunch addTemplate <NAME>
+
+        adds a preset to existing template preset collection
+                                                   *OhhDapLaunch_editTemplate*
+    :OhhDapLaunch editTemplate
+
+        edit an existing preset of the existing preset collection
+                                                 *OhhDapLaunch_deleteTempalte*
+    :OhhDapLaunch deleteTempalte
+
+        Delete a preset from existing preset collection
+
+==============================================================================
+AUTHOR
+
+    <MijikHna>
+
+vim:tw=78:ts=8:ft=help:norl:
